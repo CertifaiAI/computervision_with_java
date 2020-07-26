@@ -35,30 +35,34 @@ import java.awt.image.BufferedImage;
 import java.util.Map;
 
 import static org.bytedeco.opencv.global.opencv_core.flip;
-import static org.bytedeco.opencv.global.opencv_imgproc.*;
+import static org.bytedeco.opencv.global.opencv_imgproc.CV_AA;
+import static org.bytedeco.opencv.global.opencv_imgproc.rectangle;
 
 /**
  * Face Detection with HaarCascade
  *
  * @author ChiaWei lim
  */
-public class VideoFaceDetection {
+public class FrontCamFaceDetection {
 
     private FrameGrabber frameGrabber;
     private OpenCVFrameConverter.ToMat toMatConverter = new OpenCVFrameConverter.ToMat();
     private volatile boolean running = false;
+
+    private static final int imageWidth = 640;
+    private static final int imageHeight = 360;
 
     private HaarFaceDetector faceDetector = new HaarFaceDetector();
 
     private JFrame window;
     private JPanel videoPanel;
 
-    public VideoFaceDetection() {
+    public FrontCamFaceDetection() {
         window = new JFrame();
         videoPanel = new JPanel();
 
         window.setLayout(new BorderLayout());
-        window.setSize(new Dimension(1280, 720));
+        window.setSize(new Dimension(imageWidth, imageHeight));
         window.add(videoPanel, BorderLayout.CENTER);
         window.addWindowListener(new WindowAdapter() {
             @Override
@@ -75,13 +79,13 @@ public class VideoFaceDetection {
         frameGrabber = new OpenCVFrameGrabber(0);
 
         //frameGrabber.setFormat("mp4");
-        frameGrabber.setImageWidth(1280);
-        frameGrabber.setImageHeight(720);
+        frameGrabber.setImageWidth(imageWidth);
+        frameGrabber.setImageHeight(imageHeight);
 
         System.out.println("Starting frame grabber");
         try {
             frameGrabber.start();
-            System.out.println("Started frame grabber with image width-height : " + frameGrabber.getImageWidth() + " " + frameGrabber.getImageHeight());
+            System.out.println("Started frame grabber");
         } catch (FrameGrabber.Exception e) {
             System.out.println("Error when initializing the frame grabber. " + e);
 
@@ -158,7 +162,7 @@ public class VideoFaceDetection {
 
     public static void main(String[] args) {
 
-        VideoFaceDetection app = new VideoFaceDetection();
+        FrontCamFaceDetection app = new FrontCamFaceDetection();
 
         System.out.println("This example works with front camera");
 

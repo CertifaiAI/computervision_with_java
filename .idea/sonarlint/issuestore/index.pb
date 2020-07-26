@@ -17,5 +17,7 @@ c
 3cv/src/main/java/ai/certifai/util/ImageHandler.java,0\a\0a1b67a3cebea4eb78027ce4c675f27dd39d73bf
 p
 @advanced-cv/src/main/java/ai/certifai/haar/HaarFaceDetector.java,5\6\562d1cb392287e15ba329a9585e2e883584268a1
-m
-=advanced-cv/src/main/java/ai/certifai/VideoFaceDetection.java,e\5\e5cd0189ec0e02488fed051f0ad0bbf6970b88f4
+p
+@advanced-cv/src/main/java/ai/certifai/FrontCamFaceDetection.java,9\3\938b8ae107f4aebbd2c98bbc34b1ae2a0f586474
+k
+;advanced-cv/src/main/java/ai/certifai/YOLOObjDetection.java,a\a\aab3900c8fcfe0bf317752f740b0880456437cf5

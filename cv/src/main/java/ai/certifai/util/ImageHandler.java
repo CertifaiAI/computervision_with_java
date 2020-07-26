@@ -19,6 +19,7 @@ import net.coobird.thumbnailator.Thumbnails;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
 import org.bytedeco.javacv.OpenCVFrameConverter;
+
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
