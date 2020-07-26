@@ -17,21 +17,13 @@
 package ai.certifai;
 
 import ai.certifai.haar.HaarFaceDetector;
-import ai.certifai.util.ImageHandler;
+import org.bytedeco.javacv.*;
 import org.bytedeco.javacv.Frame;
-import org.bytedeco.javacv.FrameGrabber;
-import org.bytedeco.javacv.OpenCVFrameConverter;
-import org.bytedeco.javacv.OpenCVFrameGrabber;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_core.Point;
 import org.bytedeco.opencv.opencv_core.Rect;
 import org.bytedeco.opencv.opencv_core.Scalar;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 import java.util.Map;
 
 import static org.bytedeco.opencv.global.opencv_core.flip;
@@ -54,23 +46,8 @@ public class FrontCamFaceDetection {
 
     private HaarFaceDetector faceDetector = new HaarFaceDetector();
 
-    private JFrame window;
-    private JPanel videoPanel;
 
-    public FrontCamFaceDetection() {
-        window = new JFrame();
-        videoPanel = new JPanel();
-
-        window.setLayout(new BorderLayout());
-        window.setSize(new Dimension(imageWidth, imageHeight));
-        window.add(videoPanel, BorderLayout.CENTER);
-        window.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                stop();
-            }
-        });
-    }
+    private static CanvasFrame canvas;
 
     /**
      * Starts the frame grabbers and then the frame processing.
@@ -91,10 +68,6 @@ public class FrontCamFaceDetection {
 
             throw new RuntimeException("Unable to start the FrameGrabber", e);
         }
-
-        SwingUtilities.invokeLater(() -> {
-            window.setVisible(true);
-        });
 
         process();
 
@@ -122,20 +95,13 @@ public class FrontCamFaceDetection {
 
                     int posX = Math.max(rectMatEntry.getKey().x() - 10, 0);
                     int posY = Math.max(rectMatEntry.getKey().y() - 10, 0);
-                    //putText(mat, "human face", new Point(posX, posY), CV_FONT_HERSHEY_PLAIN, 1.0,
-                    //        new Scalar(255, 255, 255, 2.0));
                 });
 
                 Mat matFlip = new Mat();
                 flip(mat, matFlip, 1);
                 // Show the processed mat in UI
-                Frame processedFrame = toMatConverter.convert(matFlip);
+                canvas.showImage(toMatConverter.convert(matFlip));
 
-                Graphics graphics = videoPanel.getGraphics();
-                BufferedImage resizedImage = ImageHandler.getResizedBufferedImage(processedFrame, videoPanel);
-                SwingUtilities.invokeLater(() -> {
-                    graphics.drawImage(resizedImage, 0, 0, videoPanel);
-                });
             } catch (FrameGrabber.Exception e) {
                 System.out.println("Error when grabbing the frame. " +  e);
             } catch (Exception e) {
@@ -157,10 +123,12 @@ public class FrontCamFaceDetection {
             System.out.println("Error occurred when stopping the FrameGrabber. " + e);
         }
 
-        window.dispose();
     }
 
     public static void main(String[] args) {
+
+        canvas = new CanvasFrame("Haar Cascade");
+        canvas.setCanvasSize(imageWidth, imageHeight);
 
         FrontCamFaceDetection app = new FrontCamFaceDetection();
 
