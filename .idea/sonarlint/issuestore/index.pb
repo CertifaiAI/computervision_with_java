@@ -11,3 +11,11 @@ C
 :
 
 cv/pom.xml,7\1\712182022e35b99a6f5d3a557390fc8a9f8c7a78
+b
+2cv/src/main/java/ai/certifai/util/PathHandler.java,4\4\442ee1128a599e59706826dea061663ea3e7bd3f
+c
+3cv/src/main/java/ai/certifai/util/ImageHandler.java,0\a\0a1b67a3cebea4eb78027ce4c675f27dd39d73bf
+p
+@advanced-cv/src/main/java/ai/certifai/haar/HaarFaceDetector.java,5\6\562d1cb392287e15ba329a9585e2e883584268a1
+m
+=advanced-cv/src/main/java/ai/certifai/VideoFaceDetection.java,e\5\e5cd0189ec0e02488fed051f0ad0bbf6970b88f4
