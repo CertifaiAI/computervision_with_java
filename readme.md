@@ -10,33 +10,35 @@ Below shows a high level overview of the applications in each modules
 #### advanced-cv  
 - [FrontCamFaceDetection](https://github.com/CertifaiAI/computervision_with_java/blob/master/advanced-cv/src/main/java/ai/certifai/FrontCamFaceDetection.java): Front face detection with Haar Cascade algorithm
 <p align="center">
-  <img align="middle" src="metadata/haarcascade.gif" width="700" height="425"/>
+  <img align="middle" src="metadata/haarcascade.gif" width="400" height="255"/>
 </p>
+
 - [YOLOObjDetection](https://github.com/CertifaiAI/computervision_with_java/blob/master/advanced-cv/src/main/java/ai/certifai/YOLOObjDetection.java): Object detection with pretrained TinyYOLO models from Eclipse Deeplearning. 
 <p align="center">
-  <img align="middle" src="metadata/tinyyolo.gif" width="700" height="425"/>
+  <img align="middle" src="metadata/tinyyolo.gif" width="400" height="255"/>
 </p> 
 As the model was trained with on Pascal VOC dataset, it can detect these 20 labels as listed below.  
-    1. Person
-    2. Car
-    3. Bicycle
-    4. Bus
-    5. Motorbike
-    6. Train
-    7. Aeroplane
-    8. Chair
-    9. Bottle
-    10. Dining Table
-    11. Potted Plant
-    12. TV/Monitor
-    13. Sofa
-    14. Bird
-    15. Cat
-    16. Cow
-    17. Dog
-    18. Horse
-    19. Sheep
-    20. Boat
+
+    1. Person  
+    2. Car  
+    3. Bicycle  
+    4. Bus  
+    5. Motorbike  
+    6. Train  
+    7. Aeroplane  
+    8. Chair  
+    9. Bottle  
+    10. Dining Table  
+    11. Potted Plant  
+    12. TV/Monitor  
+    13. Sofa  
+    14. Bird  
+    15. Cat  
+    16. Cow  
+    17. Dog  
+    18. Horse  
+    19. Sheep  
+    20. Boat   
 
 
 The programs had been fully tested running on the backend of CPU.  
