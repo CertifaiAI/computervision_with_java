@@ -1,6 +1,6 @@
 # Eclipse Deeplearning4j Computer Vision Applications  
 
-Each program structured to tackle a commonly seek for computer vision problem with javacv and Eclipse DeepLearning4j  
+Each program structured to tackle a commonly seek for computer vision problem with Bytedeco JavaCV and Eclipse DeepLearning4j  
 
 Below shows a high level overview of the applications in each modules
 
@@ -61,5 +61,5 @@ Download and install
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ### Install Apache Maven  *Optional* ###
-IntelliJ provides a default Maven that is bundled with the installer.
+IntelliJ provides a default Maven that is bundled with the installer.  
 Follow these [instructions](https://maven.apache.org/install.html) to install Apache Maven.
