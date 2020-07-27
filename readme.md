@@ -9,7 +9,13 @@ Below shows a high level overview of the applications in each modules
 
 #### advanced-cv  
 - [FrontCamFaceDetection](https://github.com/CertifaiAI/computervision_with_java/blob/master/advanced-cv/src/main/java/ai/certifai/FrontCamFaceDetection.java): Front face detection with Haar Cascade algorithm
-- [YOLOObjDetection](https://github.com/CertifaiAI/computervision_with_java/blob/master/advanced-cv/src/main/java/ai/certifai/YOLOObjDetection.java): Object detection with pretrained TinyYOLO models from Eclipse Deeplearning.  
+<p align="center">
+  <img align="middle" src="metadata/haarcascade.gif" width="700" height="425"/>
+</p>
+- [YOLOObjDetection](https://github.com/CertifaiAI/computervision_with_java/blob/master/advanced-cv/src/main/java/ai/certifai/YOLOObjDetection.java): Object detection with pretrained TinyYOLO models from Eclipse Deeplearning. 
+<p align="center">
+  <img align="middle" src="metadata/tinyyolo.gif" width="700" height="425"/>
+</p> 
 As the model was trained with on Pascal VOC dataset, it can detect these 20 labels as listed below.  
     1. Person
     2. Car
