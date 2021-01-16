@@ -28,19 +28,19 @@ import static org.bytedeco.opencv.global.opencv_imgproc.cvtColor;
 /***
  * Read in a single colored image and convert it to grayscale
  *
- * @author ChiaWei Lim
+ * @author codenamewei
  */
 public class Color2GrayScale
 {
     public static void main(String args[])
     {
         //TODO: Change this into your own image path
-        String sourceImagePath = "C:\\Users\\chiaw\\Desktop\\images\\cat.png";
+        String sourceImagePath = "C:\\Users\\chiaw\\Desktop\\images\\cat.jpg";
 
         //Check image validity
         if(PathHandler.isFileValid(sourceImagePath) == false)
         {
-            System.out.println("Program abort. ");
+            System.out.println("Program abort. File path do not exist");
             return;
         }
 
@@ -48,14 +48,6 @@ public class Color2GrayScale
         Mat opencvMat = imread(sourceImagePath);
         int w = opencvMat.cols();
         int h = opencvMat.rows();
-        int depth = opencvMat.depth();
-
-        if(depth == 1)
-        {
-            System.out.println("Image already is grayscale. Program abort");
-            return;
-        }
-
         //Create output Mat to store grayscale image
         Mat outputImage = new Mat();
 
@@ -63,10 +55,9 @@ public class Color2GrayScale
         cvtColor(opencvMat, outputImage, COLOR_RGB2GRAY);
 
         //Save output image as file
-        String outputPath = PathHandler.getPathToFile(sourceImagePath) + "_grayscale.png";
+        String outputPath = PathHandler.getPathToFile(sourceImagePath) + "_grayscale.jpg";
         imwrite(outputPath, outputImage);
-        System.out.println("The image is successfully to Grayscale");
-
+        System.out.println("The image is successfully to Grayscale on path: " + outputPath);
 
         imshow("Color Image", opencvMat);
         imshow("Grayscale Image", outputImage);
